@@ -499,6 +499,62 @@ function showResult() {
     });
   }, 500);
 
+  // ── 维度专属评语 ──
+  // 找出百分比最高和最低的维度
+  const dimPcts = dimInfo.map(dim => {
+    const max = Math.round(catCounts[dim.cat] * 5 * selfMultiplier) || 1;
+    return { ...dim, pct: Math.round((weightedCatScores[dim.cat] / max) * 100) };
+  });
+  const topDim    = dimPcts.reduce((a, b) => a.pct > b.pct ? a : b);
+  const bottomDim = dimPcts.reduce((a, b) => a.pct < b.pct ? a : b);
+
+  // 各维度高分评语（topDim 专属）
+  const dimComments = {
+    A: [
+      '你的身体已经习惯了静止，新陈代谢在等你，但不着急。',
+      '你和床的关系比大多数人的感情都稳定，值得尊重。',
+      '外卖记录是你最诚实的日记，每一单都是一个选择。',
+      '你的身体在用各种信号和你沟通，你选择了静音。',
+    ],
+    B: [
+      '算法比你妈更了解你喜欢什么，这件事值得细品。',
+      '你的收藏夹是一座图书馆，你是从不入内的馆长。',
+      '你每天消耗的信息量足以写一本书，但你只是刷过去了。',
+      '"再看一个"是你说过最多的谎言，没有之一。',
+    ],
+    C: [
+      '你的待办清单是一封写给未来自己的信，但地址填错了。',
+      '"等状态好了再开始"——这句话你说了多久了？',
+      '你的计划本里住着另一个更勤奋的你，他在等你去找他。',
+      '你不是没有目标，你只是把所有目标都存进了草稿箱。',
+    ],
+    D: [
+      '你的社交圈在收缩，但你好像还挺享受安静的。',
+      '已读不回是一门艺术，你已经练到了宗师级别。',
+      '你和大多数朋友的关系靠的是惯性，惯性正在减弱。',
+      '你不是不想联系，你只是每次都觉得"等会儿再说"。',
+    ],
+  };
+
+  // 低分维度的反差评语（最低维度，说明这块相对清醒）
+  const dimLowComments = {
+    A: '不过你的身体还没完全放弃你，这是好事。',
+    B: '你和手机的关系还算健康，起码手机还没成为你的器官。',
+    C: '你在现实层面还保持着基本的运转，没有完全脱轨。',
+    D: '你在社交上还没彻底关门，门缝还留着。',
+  };
+
+  const topComment   = dimComments[topDim.cat][Math.floor(Math.random() * dimComments[topDim.cat].length)];
+  const lowComment   = bottomDim.cat !== topDim.cat ? dimLowComments[bottomDim.cat] : '';
+
+  const dimCommentEl = document.getElementById('dim-comment');
+  if (dimCommentEl) {
+    dimCommentEl.innerHTML =
+      `<span class="dim-comment-top">${topDim.icon} ${topComment}</span>` +
+      (lowComment ? `<span class="dim-comment-low">${bottomDim.icon} ${lowComment}</span>` : '');
+    setTimeout(() => { dimCommentEl.style.opacity = '1'; }, 700);
+  }
+
   // 自卑系数说明标签
   const selfTag = document.getElementById('self-coef-tag');
   if (selfTag) {

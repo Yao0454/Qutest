@@ -543,6 +543,39 @@ body {
 .dim-bar-fill { height: 100%; border-radius: 999px; transition: width 1s cubic-bezier(0.4,0,0.2,1) 0.4s; }
 .dim-score-text { font-family: 'Space Grotesk', sans-serif; font-size: 0.68rem; color: var(--muted); }
 
+.dim-comment {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0.5rem 0 2rem;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 0.6s ease 0.7s;
+}
+
+.dim-comment-top {
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text);
+  padding: 1rem 1.2rem;
+  background: rgba(139,92,246,0.07);
+  border: 1px solid rgba(139,92,246,0.18);
+  border-radius: 12px;
+  border-left: 3px solid var(--accent2);
+}
+
+.dim-comment-low {
+  display: block;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--muted);
+  padding: 0.8rem 1.2rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--linew);
+  border-radius: 12px;
+}
+
 .self-coef-tag {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.68rem;
