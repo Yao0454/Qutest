@@ -1159,6 +1159,271 @@ const ALL_QUESTIONS = [
   },
 ];
 
+// === E: 隐性自卑探测题（穿插用，不显示分类标签，influences multiplier only）===
+// selfScore: 0=自信/无所谓, 1=轻微信号, 2=中度信号, 3=强烈自卑信号
+const SELF_QUESTIONS = [
+  {
+    cat: "E",
+    catName: "日常随感",
+    q: '有人夸你"做得不错"，你的第一反应是？',
+    opts: [
+      "谢谢，我确实挺用心的",
+      "有点意外，但开心",
+      "他只是客气，或者没见过更好的",
+      "他肯定有别的目的，或者在讽刺我",
+    ],
+    scores: [0, 1, 3, 5],
+    selfScore: [0, 0, 2, 3],
+  },
+  {
+    cat: "E",
+    catName: "日常随感",
+    q: "发了一条动态，两小时没人点赞，你会想什么？",
+    opts: [
+      "没什么，不在乎",
+      "有点好奇，可能大家没刷到",
+      "是不是发得不好，是不是该删掉",
+      "果然，没人在乎我说什么",
+    ],
+    scores: [0, 1, 3, 5],
+    selfScore: [0, 0, 2, 3],
+  },
+  {
+    cat: "E",
+    catName: "日常随感",
+    q: "和一群人一起时，你通常是？",
+    opts: [
+      "自然融入，聊得挺好",
+      "会说话，但不是中心",
+      "大多时候在观察别人，不太开口",
+      "觉得自己格格不入，不知道怎么接话",
+    ],
+    scores: [0, 1, 3, 5],
+    selfScore: [0, 0, 2, 3],
+  },
+  {
+    cat: "E",
+    catName: "日常随感",
+    q: "朋友突然变得冷淡，你第一时间会觉得？",
+    opts: [
+      "他最近可能有事，等他",
+      "有点在意，但先观望",
+      "是不是我说了什么话惹到他了",
+      "一定是我哪里做错了，开始回忆所有细节",
+    ],
+    scores: [0, 1, 3, 5],
+    selfScore: [0, 0, 2, 3],
+  },
+  {
+    cat: "E",
+    catName: "日常随感",
+    q: "你认为自己的想法/意见值得被认真听吗？",
+    opts: [
+      "值得，我想过的事我有把握",
+      "大部分情况值得，视场合",
+      "不确定，说出来怕被否定",
+      "通常不值得，说了也没用",
+    ],
+    scores: [0, 1, 3, 5],
+    selfScore: [0, 0, 2, 3],
+  },
+  {
+    cat: "E",
+    catName: "日常随感",
+    q: "有机会在很多人面前展示自己，你的感受是？",
+    opts: [
+      "好啊，挺期待的",
+      "有点紧张但能做到",
+      "很抗拒，怕出丑被评价",
+      "绝对不，宁可消失在人群里",
+    ],
+    scores: [0, 1, 3, 5],
+    selfScore: [0, 0, 2, 3],
+  },
+  {
+    cat: "E",
+    catName: "日常随感",
+    q: '你上一次真心觉得"我挺好的"是什么时候？',
+    opts: [
+      "最近就有，状态不错",
+      "偶尔会有这种感觉",
+      "记不清了，好像很少",
+      "我不太有这种感觉，总觉得哪里不够",
+    ],
+    scores: [0, 1, 3, 5],
+    selfScore: [0, 0, 2, 3],
+  },
+  {
+    cat: "E",
+    catName: "日常随感",
+    q: "当你特别喜欢一个人（朋友或恋人），你会？",
+    opts: [
+      "主动靠近，表达喜欢",
+      "喜欢但会等对方先开口",
+      "喜欢但觉得自己配不上，就远远看着",
+      "喜欢但主动消失，怕被嫌烦",
+    ],
+    scores: [0, 1, 3, 5],
+    selfScore: [0, 0, 2, 3],
+  },
+  {
+    cat: "E",
+    catName: "日常随感",
+    q: "别人比你优秀，你通常怎么看待？",
+    opts: [
+      "挺好的，可以学习",
+      "有点羡慕，但不影响自己",
+      "感到压力和自我怀疑",
+      "默默远离，觉得跟不上他们",
+    ],
+    scores: [0, 1, 3, 5],
+    selfScore: [0, 0, 2, 3],
+  },
+  {
+    cat: "E",
+    catName: "日常随感",
+    q: "如果有人对你特别好，你会？",
+    opts: [
+      "开心接受，回馈对方",
+      "有点受宠若惊，但挺好",
+      "怀疑他为什么对我好，是否有目的",
+      "觉得不安，自己不值得这样被对待",
+    ],
+    scores: [0, 1, 3, 5],
+    selfScore: [0, 0, 2, 3],
+  },
+  {
+    cat: "E",
+    catName: "日常随感",
+    q: "完成一件事之后，你通常怎么看待结果？",
+    opts: [
+      "达到预期就满意",
+      "觉得还不错，但下次可以更好",
+      "总觉得哪里没做好，反复回想",
+      "结果再好也会找到自己不足的地方",
+    ],
+    scores: [0, 1, 3, 5],
+    selfScore: [0, 0, 2, 3],
+  },
+  {
+    cat: "E",
+    catName: "日常随感",
+    q: "和初次见面的人相处，你会？",
+    opts: [
+      "轻松自然，很快打开话匣子",
+      "比较观察，但能正常交流",
+      "担心给对方留下不好的印象，说话很谨慎",
+      "基本不主动，因为觉得自己不够有趣",
+    ],
+    scores: [0, 1, 3, 5],
+    selfScore: [0, 0, 2, 3],
+  },
+  {
+    cat: "E",
+    catName: "日常随感",
+    q: "你在照片/镜子里看到自己，你的感受通常是？",
+    opts: [
+      "挺好的，就是我",
+      "还行，偶尔觉得不满意",
+      "有很多不喜欢的地方，总想修图",
+      "看了难受，不太想看",
+    ],
+    scores: [0, 1, 3, 5],
+    selfScore: [0, 0, 2, 3],
+  },
+  {
+    cat: "E",
+    catName: "日常随感",
+    q: "当你说了一句话，没人接，你会怎么想？",
+    opts: [
+      "没什么，话题就过了",
+      "有点尴尬，但无所谓",
+      "觉得自己说了蠢话，有点后悔",
+      "确认了自己说话不值得被回应这件事",
+    ],
+    scores: [0, 1, 3, 5],
+    selfScore: [0, 0, 2, 3],
+  },
+  {
+    cat: "E",
+    catName: "日常随感",
+    q: '你对"我值得被爱"这句话的反应是？',
+    opts: [
+      "当然，这是基本事实",
+      "大概吧，理性上认同",
+      "有点难以置信，不太确定",
+      "这句话跟我好像没什么关系",
+    ],
+    scores: [0, 1, 3, 5],
+    selfScore: [0, 0, 2, 3],
+  },
+  {
+    cat: "E",
+    catName: "日常随感",
+    q: "做决定时，你通常怎么处理？",
+    opts: [
+      "根据自己判断来，比较有主见",
+      "会参考别人意见，但最终自己决定",
+      "很依赖别人意见，怕自己判断出错",
+      "尽量不做决定，因为怕选错了被怪",
+    ],
+    scores: [0, 1, 3, 5],
+    selfScore: [0, 0, 2, 3],
+  },
+  {
+    cat: "E",
+    catName: "日常随感",
+    q: "有人和你意见不同，你的第一反应是？",
+    opts: [
+      "表达自己的看法，理性讨论",
+      "稍微坚持一下，但能接受分歧",
+      "立刻怀疑是不是自己错了",
+      "基本会认同对方，不太敢坚持自己",
+    ],
+    scores: [0, 1, 3, 5],
+    selfScore: [0, 0, 2, 3],
+  },
+  {
+    cat: "E",
+    catName: "日常随感",
+    q: '你怎么看待"我是一个有价值的人"这件事？',
+    opts: [
+      "认同，我的存在本身就有价值",
+      "大部分时候认同，看状态",
+      "需要做到某些事才觉得自己有价值",
+      "不太确定，价值感很依赖别人的认可",
+    ],
+    scores: [0, 1, 3, 5],
+    selfScore: [0, 0, 2, 3],
+  },
+  {
+    cat: "E",
+    catName: "日常随感",
+    q: "有人批评你，即使是善意的，你的感受是？",
+    opts: [
+      "接受，觉得有帮助",
+      "有点不舒服，但能消化",
+      "会难受很久，反复想",
+      "会觉得自己整个人都是错的，不只是那件事",
+    ],
+    scores: [0, 1, 3, 5],
+    selfScore: [0, 0, 2, 3],
+  },
+  {
+    cat: "E",
+    catName: "日常随感",
+    q: '你有没有觉得自己"总是比别人差一点"？',
+    opts: [
+      "没有，我有自己擅长的东西",
+      "偶尔有这感觉，但不强烈",
+      "经常有，但说不清楚差在哪",
+      "几乎一直有，是一种背景噪音",
+    ],
+    scores: [0, 1, 3, 5],
+    selfScore: [0, 0, 2, 3],
+  },
+];
+
 // ========== 抗乱选机制 ==========
 const antiCheat = {
   startTimes: {},
@@ -1204,26 +1469,51 @@ let quizQuestions = [];
 let currentIdx = 0;
 let answers = {};
 
+// ========== 题目总数配置 ==========
+const TOTAL_Q = 30; // 测试题总数（25行为题 + 5自卑题）
+const SELF_COUNT = 5; // 自卑题数量
+
 // ========== 抽题 ==========
 function drawQuestions() {
+  // ABCD 行为题：每类各抽约6-7题，共25题
   const cats = ["A", "B", "C", "D"];
-  let selected = [];
+  let behaviorQs = [];
   cats.forEach((cat) => {
     const pool = ALL_QUESTIONS.filter((q) => q.cat === cat);
     const shuffled = [...pool].sort(() => Math.random() - 0.5);
-    selected = selected.concat(shuffled.slice(0, 7));
+    behaviorQs = behaviorQs.concat(shuffled.slice(0, 7));
   });
-  return selected.sort(() => Math.random() - 0.5).slice(0, 25);
+  behaviorQs = behaviorQs.sort(() => Math.random() - 0.5).slice(0, 25);
+
+  // E 自卑题：从20题库随机抽5题
+  const selfQs = [...SELF_QUESTIONS]
+    .sort(() => Math.random() - 0.5)
+    .slice(0, SELF_COUNT);
+
+  // 将5道自卑题随机穿插到行为题中（避免连续出现，分散插入）
+  const result = [...behaviorQs];
+  const positions = [];
+  while (positions.length < SELF_COUNT) {
+    const pos = 3 + Math.floor(Math.random() * (result.length - 3));
+    if (!positions.includes(pos)) positions.push(pos);
+  }
+  positions.sort((a, b) => b - a); // 从后往前插，不影响前面的索引
+  positions.forEach((pos, i) => result.splice(pos, 0, selfQs[i]));
+
+  return result; // 共30题
 }
 
-// ========== 结果等级 ==========
+// ========== 结果等级（含自卑双版本文案）==========
 const LEVELS = [
   {
     min: 0,
     max: 15,
     title: "清醒的灵魂",
     creature: "🌸",
-    desc: "恭喜你，你几乎是正常人。这份测试对你来说可能只是一次社会观察。你日出而作，日落而息，朋友多、出门勤。说真的，你来这里做什么？",
+    desc_low:
+      "恭喜你，你几乎是正常人。行为健康，内心也踏实。你来这里可能只是好奇——说真的，你来做什么？",
+    desc_high:
+      "行为上你还算正常，但内心藏着一点点不安全感。那没关系，大部分人都有，只是你比较诚实。",
     badge: "蛆力值：微乎其微",
     badgeColor: "#10b981",
     ring: "#10b981",
@@ -1233,7 +1523,10 @@ const LEVELS = [
     max: 30,
     title: "潜伏的小蛆苗",
     creature: "🌱",
-    desc: "你身上有那么一丢丢蛆的基因，但还没完全激活。你偶尔熬夜，偶尔宅家，偶尔追番。蛆的大门已经向你虚掩，你随时可以进来。",
+    desc_low:
+      "你身上有一丢丢蛆的基因，但还没完全激活。你蛆得坦然，只是单纯懒，没什么心理包袱。",
+    desc_high:
+      "蛆的种子刚发芽，但根可能扎得比你想的深。你有时候躲进壳里，不只是懒，是外面让你有点累。",
     badge: "蛆力值：初露端倪",
     badgeColor: "#84cc16",
     ring: "#84cc16",
@@ -1243,7 +1536,10 @@ const LEVELS = [
     max: 50,
     title: "轻度蛆化患者",
     creature: "🐛",
-    desc: '轻度感染，建议隔离观察。你已经开始出现典型症状：不想出门、追番熬夜、待消息积压。但还有救，只需一个"周一开始改变"的勇气。',
+    desc_low:
+      "轻度感染，建议隔离观察。症状有：不想出门、追番熬夜、待消息积压。但你蛆得挺自洽，没啥压力。",
+    desc_high:
+      "症状在中等线，但驱动力值得注意。你的不出门、不联系，有时候不只是懒，是怕麻烦别人，或者怕被评价。",
     badge: "蛆力值：轻度感染",
     badgeColor: "#f59e0b",
     ring: "#f59e0b",
@@ -1253,7 +1549,10 @@ const LEVELS = [
     max: 65,
     title: "中度蛆类生命体",
     creature: "🪲",
-    desc: '病情进入中期。你的生物钟已经和普通人类错位，社交从"麻烦"升级为"威胁"。二次元老婆比现实朋友可靠，外卖备注比微信更能表达你的内心。',
+    desc_low:
+      "病情中期。生物钟错位，社交成本高，外卖备注比微信更能表达你。不过你蛆得随心，是主动选择的荒漠。",
+    desc_high:
+      "病情中期，根源值得深挖。你躲进二次元和深夜，有一部分是因为现实里的关系让你受过伤，或者总觉得自己不够好。",
     badge: "蛆力值：中度扩散",
     badgeColor: "#f97316",
     ring: "#f97316",
@@ -1263,7 +1562,10 @@ const LEVELS = [
     max: 80,
     title: "资深御宅蛆",
     creature: "🦗",
-    desc: '欢迎来到蛆界中层。你的床是你的全球，外卖员是你最频繁接触的人类，太阳对你来说只是"窗帘缝里漏进来的白噪音"。你不是堕落，你只是……找到了自己。',
+    desc_low:
+      "欢迎来到蛆界中层。你的床是你的全球，外卖员是你最亲近的人类。你蛆得坦荡，这是一种境界。",
+    desc_high:
+      "蛆界中层，但壳厚有原因。太阳是天敌，人群是威胁——不只是懒，是外面让你觉得不安全。你在保护自己。",
     badge: "蛆力值：高度发育",
     badgeColor: "#ef4444",
     ring: "#ef4444",
@@ -1273,7 +1575,10 @@ const LEVELS = [
     max: 95,
     title: "深度冬眠蛆王候选",
     creature: "🦟",
-    desc: "你已经进化到蛆界高层。你的生存模式接近某种濒危动物：极少出现，只在深夜活动，以屏幕为食。你不是废物，你是……一种特殊的生态位。",
+    desc_low:
+      "进化到蛆界高层。极少出现，只在深夜活动，以屏幕为食。你不是废物，你只是找到了自己的生态位。",
+    desc_high:
+      "蛆界高层，但冬眠背后有故事。你不只是懒得出现——你是觉得出现了也没人真的需要你。这不是事实，但你信了很久。",
     badge: "蛆力值：极度繁荣",
     badgeColor: "#dc2626",
     ring: "#c084fc",
@@ -1283,17 +1588,23 @@ const LEVELS = [
     max: 110,
     title: "传说级死肥蛆",
     creature: "🪱",
-    desc: "恭喜！你已登顶蛆界珠峰。社会对你来说是个传说，太阳是你最大的天敌，手机是你的灵魂伴侣。你不蛆，你是在用蛆的方式热爱生命。",
+    desc_low:
+      "已登顶蛆界珠峰。太阳是天敌，手机是灵魂伴侣。你不蛆，你是在用蛆的方式热爱生命，坦然且自洽。",
+    desc_high:
+      "登顶了，但山顶有点沉。你把自己藏得很深，深到连自己都快找不到了。不是因为不在乎，是因为太在乎又怕受伤。",
     badge: "蛆力值：封神",
     badgeColor: "#9333ea",
     ring: "#a855f7",
   },
   {
     min: 111,
-    max: 125,
+    max: 999,
     title: "宇宙级蛆神降临",
     creature: "👾",
-    desc: "科学家表示，像你这样的存在需要全新的分类。你已经突破了蛆的上限，进入了某种玄学领域。时间对你无效，社会对你失能，二次元是你的家乡。你不是人类，你是概念。",
+    desc_low:
+      "你已突破蛆的上限，进入玄学领域。时间对你无效，社会对你失能，二次元是你的家乡。你不是人类，你是概念。",
+    desc_high:
+      "你突破了蛆的上限，但这个宇宙有点孤独。你把所有防线都建起来了，不让任何人太靠近——因为靠近了，就可能失去。你不是概念，你是一个很怕受伤的人。",
     badge: "蛆力值：无法测量",
     badgeColor: "#7c3aed",
     ring: "#c084fc",
@@ -1305,6 +1616,21 @@ function getLevel(score) {
     LEVELS.find((l) => score >= l.min && score <= l.max) ||
     LEVELS[LEVELS.length - 1]
   );
+}
+
+// 计算自卑系数（0~1，越高越自卑）
+function calcSelfScore(answerMap, questions) {
+  let total = 0,
+    count = 0;
+  Object.entries(answerMap).forEach(([idx, a]) => {
+    const q = questions[parseInt(idx)];
+    if (q && q.cat === "E" && q.selfScore) {
+      total += q.selfScore[a.realOptIdx] || 0;
+      count++;
+    }
+  });
+  if (count === 0) return 0;
+  return total / (count * 3); // 归一化 0~1
 }
 
 // ========== UI 函数 ==========
@@ -1335,13 +1661,13 @@ function renderQuestion() {
   catBadge.textContent = q.catName;
   catBadge.className = "quiz-category-badge cat-" + q.cat;
 
-  const pct = Math.round((currentIdx / 25) * 100);
+  const pct = Math.round((currentIdx / TOTAL_Q) * 100);
   document.getElementById("progress-text").textContent =
-    `第 ${currentIdx + 1} / 25 题`;
+    `第 ${currentIdx + 1} / ${TOTAL_Q} 题`;
   document.getElementById("progress-pct").textContent = pct + "%";
   document.getElementById("progress-fill").style.width = pct + "%";
   document.getElementById("answered-count").textContent =
-    `已答 ${Object.keys(answers).length} / 25`;
+    `已答 ${Object.keys(answers).length} / ${TOTAL_Q}`;
 
   const labels = ["A", "B", "C", "D"];
   const optOrder = shuffleOptions(q.opts.length);
@@ -1362,7 +1688,7 @@ function renderQuestion() {
   document.getElementById("btn-next").disabled =
     answers[currentIdx] === undefined;
   document.getElementById("btn-next").textContent =
-    currentIdx === 24 ? "提交结果 ✓" : "下一题 →";
+    currentIdx === TOTAL_Q - 1 ? "提交结果 ✓" : "下一题 →";
 
   antiCheat.recordStart(currentIdx);
 }
@@ -1387,14 +1713,14 @@ function selectOption(realOptIdx, btnEl, score) {
 
   document.getElementById("btn-next").disabled = false;
   document.getElementById("answered-count").textContent =
-    `已答 ${Object.keys(answers).length} / 25`;
+    `已答 ${Object.keys(answers).length} / ${TOTAL_Q}`;
 
   if (elapsed < 0.8) showToast("这么快？你在乱选吗？（已记录）");
 }
 
 function nextQ() {
   if (answers[currentIdx] === undefined) return;
-  if (currentIdx < 24) {
+  if (currentIdx < TOTAL_Q - 1) {
     currentIdx++;
     renderQuestion();
   } else {
@@ -1417,27 +1743,42 @@ function showToast(msg) {
 }
 
 function showResult() {
-  const answerArr = Object.values(answers);
-  const rawScore = answerArr.reduce((s, a) => s + a.score, 0);
+  // ── 自卑系数计算（E类题，归一化到0~1）──
+  const selfCoef = calcSelfScore(answers, quizQuestions);
+  const isHighSelf = selfCoef >= 0.5;
+  // 自卑权重乘数：最低×1.0，最高×1.4
+  const selfMultiplier = 1 + selfCoef * 0.4;
 
+  // ── 各维度原始分（仅ABCD，E类排除）──
+  const catScores = { A: 0, B: 0, C: 0, D: 0 };
+  const catCounts = { A: 0, B: 0, C: 0, D: 0 };
+  Object.entries(answers).forEach(([idx, a]) => {
+    const q = quizQuestions[parseInt(idx)];
+    if (q.cat !== "E") {
+      catScores[q.cat] += a.score;
+      catCounts[q.cat]++;
+    }
+  });
+
+  // ── 各维度分乘上自卑系数 → 加权后求总蛆力值 ──
+  const weightedCatScores = {};
+  ["A", "B", "C", "D"].forEach((cat) => {
+    weightedCatScores[cat] = Math.round(catScores[cat] * selfMultiplier);
+  });
+  const rawScore = Object.values(weightedCatScores).reduce((s, v) => s + v, 0);
+
+  // ── 抗乱选 ──
   const cheatData = Object.entries(answers).map(([idx, a]) => ({
     optIdx: a.realOptIdx,
     time: a.time,
     totalOpts: quizQuestions[parseInt(idx)].opts.length,
   }));
   const { penalty, msg } = antiCheat.analyze(cheatData);
-  const finalScore = Math.round(rawScore * (1 - penalty * 0.3));
+  const finalScore = Math.min(Math.round(rawScore * (1 - penalty * 0.3)), 125);
   if (msg) setTimeout(() => showToast(msg), 500);
 
-  const catScores = { A: 0, B: 0, C: 0, D: 0 };
-  const catCounts = { A: 0, B: 0, C: 0, D: 0 };
-  Object.entries(answers).forEach(([idx, a]) => {
-    const q = quizQuestions[parseInt(idx)];
-    catScores[q.cat] += a.score;
-    catCounts[q.cat]++;
-  });
-
   const level = getLevel(finalScore);
+  const desc = isHighSelf ? level.desc_high : level.desc_low;
 
   document.getElementById("quiz").style.display = "none";
   document.getElementById("result").style.display = "block";
@@ -1450,7 +1791,7 @@ function showResult() {
 
   document.getElementById("result-creature").textContent = level.creature;
   document.getElementById("result-title").textContent = level.title;
-  document.getElementById("result-desc").textContent = level.desc;
+  document.getElementById("result-desc").textContent = desc;
   document.getElementById("score-num").textContent = finalScore;
 
   const pct = Math.min(finalScore / 125, 1);
@@ -1470,8 +1811,9 @@ function showResult() {
   const grid = document.getElementById("dimension-grid");
   grid.innerHTML = "";
   dimInfo.forEach((dim) => {
-    const maxPossible = catCounts[dim.cat] * 5 || 1;
-    const dimScore = catScores[dim.cat];
+    const maxPossible =
+      Math.round(catCounts[dim.cat] * 5 * selfMultiplier) || 1;
+    const dimScore = weightedCatScores[dim.cat];
     const pctDim = Math.round((dimScore / maxPossible) * 100);
     const card = document.createElement("div");
     card.className = "dim-card";
@@ -1494,11 +1836,29 @@ function showResult() {
     });
   }, 400);
 
+  // 自卑系数说明标签
+  const selfTag = document.getElementById("self-coef-tag");
+  if (selfTag) {
+    const pctSelf = Math.round(selfCoef * 100);
+    selfTag.textContent = isHighSelf
+      ? `🔍 自卑系数 ${pctSelf}% — 已对蛆力值施加 ×${selfMultiplier.toFixed(2)} 加权`
+      : `🔍 自卑系数 ${pctSelf}% — 内心相对稳定，加权系数 ×${selfMultiplier.toFixed(2)}`;
+    selfTag.style.opacity = "1";
+  }
+
   setTimeout(() => {
     document.getElementById("result-title").classList.add("glitch");
   }, 800);
 
-  window._resultData = { finalScore, level, catScores, catCounts };
+  window._resultData = {
+    finalScore,
+    level,
+    catScores: weightedCatScores,
+    catCounts,
+    isHighSelf,
+    selfCoef,
+    selfMultiplier,
+  };
 }
 
 function retryQuiz() {
@@ -1520,7 +1880,13 @@ function shareResult() {
     `精神状态指数：${Math.round((d.catScores.D / (d.catCounts.D * 5 || 1)) * 100)}%\n\n` +
     `测测你有多蛆 👾`;
 
-  navigator.clipboard.writeText(text).then(() => {
+  // 加入自卑彩蛋行
+  const selfLine = d.isHighSelf
+    ? "\n【隐藏属性：蛆壳之下藏着一颗敏感的心】"
+    : "";
+  const finalText = text + selfLine;
+
+  navigator.clipboard.writeText(finalText).then(() => {
     const tip = document.getElementById("copied-tip");
     tip.classList.add("show");
     setTimeout(() => tip.classList.remove("show"), 2000);

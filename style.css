@@ -719,6 +719,20 @@ body::before {
     opacity: 1;
 }
 
+.self-coef-tag {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin: 0.5rem auto 1.5rem;
+    padding: 0.4rem 1rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    display: inline-block;
+    opacity: 0;
+    transition: opacity 0.6s ease 1s;
+    letter-spacing: 0.03em;
+}
+
 @media (max-width: 600px) {
     .dimension-grid {
         grid-template-columns: 1fr;
